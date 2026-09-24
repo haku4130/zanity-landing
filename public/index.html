@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zanity VPN — защищённое подключение с раздельной маршрутизацией</title>
+<meta name="description" content="Zanity VPN — приватное и стабильное подключение. Раздельная маршрутизация: российские сайты открываются напрямую. Безлимитный трафик, 3 устройства, оплата в рублях, первые сутки бесплатно.">
+<link rel="canonical" href="https://zanityvpn.com/">
+<meta name="theme-color" content="#070D22">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zanity VPN">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://zanityvpn.com/">
+<meta property="og:title" content="Zanity VPN — защищённое подключение с раздельной маршрутизацией">
+<meta property="og:description" content="Безлимитный трафик, три устройства, оплата в рублях. Первые сутки бесплатно, без карты.">
+<meta property="og:image" content="https://zanityvpn.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://zanityvpn.com/#org",
+      "name": "Zanity VPN",
+      "alternateName": ["ZanityVPN", "Занити ВПН"],
+      "url": "https://zanityvpn.com/",
+      "logo": "https://zanityvpn.com/icon-512.png",
+      "sameAs": ["https://t.me/zanity_vpn_bot"]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Zanity VPN",
+      "url": "https://zanityvpn.com/",
+      "inLanguage": "ru",
+      "publisher": {"@id": "https://zanityvpn.com/#org"}
+    },
+    {
+      "@type": "Product",
+      "name": "Подписка Zanity VPN",
+      "description": "Защищённое подключение: безлимитный трафик, три устройства, несколько локаций.",
+      "brand": {"@id": "https://zanityvpn.com/#org"},
+      "offers": [
+        {"@type": "Offer", "name": "14 дней", "price": "109", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "1 месяц", "price": "199", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "3 месяца", "price": "579", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "6 месяцев", "price": "1099", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
+        {"@type": "Offer", "name": "12 месяцев", "price": "1999", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Как попробовать бесплатно?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Войдите в личный кабинет или откройте бота @zanity_vpn_bot и активируйте пробный период: сутки, 10 ГБ трафика, одно устройство. Карта не нужна."}},
+        {"@type": "Question", "name": "На каких устройствах работает?",
+         "acceptedAnswer": {"@type": "Answer", "text": "iPhone и iPad, Android, Windows, macOS и Linux. Подписка импортируется в приложение INCY или другой совместимый клиент одной ссылкой."}},
+        {"@type": "Question", "name": "Сколько устройств можно подключить?",
+         "acceptedAnswer": {"@type": "Answer", "text": "В подписку входят три устройства. Если нужно больше, их можно добавить в боте или в личном кабинете."}},
+        {"@type": "Question", "name": "Как оплатить?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Пополните баланс в рублях в боте или в личном кабинете и выберите срок: 14 дней, 1, 3, 6 или 12 месяцев. Продление происходит автоматически с баланса, его можно отключить."}},
+        {"@type": "Question", "name": "Что делать, если что-то не работает?",
+         "acceptedAnswer": {"@type": "Answer", "text": "Напишите в поддержку через раздел «Поддержка» в боте. Там же можно открыть обращение и отследить ответ."}}
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+body{margin:0;background:#070D22;color:#EAF0FF;font:400 17px/1.6 "Onest",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+:root{--top-h:80px}
+html{scroll-padding-top:calc(var(--top-h) + 16px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.z-top{position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid transparent;transition:background-color .3s,border-color .3s}
+.z-top-in{max-width:1200px;height:var(--top-h);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.z-top.is-scrolled{background-color:rgba(7,13,34,.72);border-bottom-color:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%)}
+.z-card,.z-price,.z-panel,.z-faq details,.z-ref,.z-cta{-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+.z-card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.z-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px 320px at var(--mx) var(--my),rgba(39,196,232,.16),transparent 70%),rgba(39,196,232,.05);opacity:0;transition:opacity .35s ease;pointer-events:none;z-index:0}
+.z-card > *{position:relative;z-index:1}
+@media (hover:hover){
+  .z-card:hover{border-color:rgba(39,196,232,.35) !important;box-shadow:0 28px 70px -34px rgba(39,196,232,.6)}
+  .z-card:hover::after{opacity:1}
+}
+@media (hover:hover) and (prefers-reduced-motion:no-preference){.z-card:hover{transform:translateY(-4px)}}
+@media (max-width:680px){:root{--top-h:68px}}
+img{max-width:100%}
+a{color:#5FD6F0}a:hover{color:#9BE7F7}
+h1,h2,h3{font-family:"Unbounded","Onest",sans-serif;font-weight:700;line-height:1.12;margin:0;letter-spacing:-.015em;text-wrap:balance}
+p{text-wrap:pretty}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #27C4E8;outline-offset:3px;border-radius:8px}
+.z-nav a{color:#AEBBDA;text-decoration:none}
+.z-nav a:hover{color:#FFFFFF}
+.z-cab{color:#FFFFFF !important}
+.z-cab:hover,.z-ghost:hover{border-color:#27C4E8 !important;background:rgba(39,196,232,.08) !important}
+.z-main{transition:transform .2s,box-shadow .2s}
+.z-main:hover{transform:translateY(-1px);box-shadow:0 10px 40px -8px rgba(63,224,197,.65) !important;color:#06112B !important}
+.z-price{cursor:pointer;text-align:left;font:inherit;color:inherit;transition:border-color .2s,background .2s,transform .2s}
+.z-span{grid-column:1 / -1}
+.z-price:hover{border-color:rgba(39,196,232,.45) !important}
+.z-price.is-on{border-color:#27C4E8 !important;background:linear-gradient(180deg,rgba(39,196,232,.16),rgba(39,196,232,.04)) !important;box-shadow:0 0 0 1px #27C4E8,0 18px 50px -20px rgba(39,196,232,.7)}
+.z-route .z-path{fill:none;stroke:url(#zg);stroke-width:2;stroke-linecap:round;opacity:.7}
+.z-route .z-pulse{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-linecap:round;stroke-dasharray:12 400;stroke-dashoffset:412}
+@media (prefers-reduced-motion:no-preference){
+  .z-route .z-pulse{animation:ztravel 3.2s cubic-bezier(.5,0,.3,1) infinite}
+  .z-route .z-p2{animation-delay:1.1s}
+  .z-orbit{animation:zspin 70s linear infinite}
+  .z-float{animation:zfloat 6s ease-in-out infinite}
+  .z-float2{animation:zfloat 7s ease-in-out 1s infinite}
+  .z-live{animation:zlive 2s ease-in-out infinite}
+  .z-direct{animation:zmarch 1.6s linear infinite}
+  .z-orbit-nodes{animation:zspin 48s linear infinite}
+  .z-node{animation:zspin 48s linear infinite reverse}
+  .z-aurora span:nth-child(1){animation:zblob1 26s ease-in-out infinite alternate}
+  .z-aurora span:nth-child(2){animation:zblob2 32s ease-in-out infinite alternate}
+  .z-aurora span:nth-child(3){animation:zblob3 38s ease-in-out infinite alternate}
+  .z-aurora span:nth-child(4){animation:zblob2 44s ease-in-out infinite alternate-reverse}
+  .z-aurora span:nth-child(5){animation:zblob1 36s ease-in-out infinite alternate-reverse}
+  .z-sky{animation:ztwinkle 5s ease-in-out infinite alternate}
+  .z-shoot i:nth-child(1){animation:zshoot 17s ease-in 3s infinite}
+  .z-shoot i:nth-child(2){animation:zshoot 23s ease-in 11s infinite}
+  .z-shoot i:nth-child(3){animation:zshoot 29s ease-in 19s infinite}
+  @supports (animation-timeline: scroll()){
+    .z-sky-far{animation:zpar-far linear both;animation-timeline:scroll()}
+    .z-sky-near{animation:zpar-near linear both;animation-timeline:scroll()}
+  }
+  .z-grad{animation:zgrad 6s ease-in-out infinite alternate}
+  .z-main::after{animation:zshine 4.5s ease-in-out 1.5s infinite}
+  .z-glow-border::before{animation:zborder 6s linear infinite}
+  .z-flowline{animation:zflow 1.2s linear infinite}
+  .z-flow-live path{stroke-dasharray:6 4;animation:zmarch2 .9s linear infinite}
+  .z-meter-fill{animation:zmeter 6s cubic-bezier(.45,0,.2,1) infinite}
+  .z-meter-pct{animation:zpct 6s cubic-bezier(.45,0,.2,1) infinite}
+  .z-meter-pct .z-meter-num{display:none}
+  .z-meter-pct{counter-reset:pct var(--pct)}
+  .z-meter-pct::before{content:counter(pct) "%"}
+  .z-ref-friends > div:nth-child(1){animation:zfriend1 6s ease infinite}
+  .z-ref-friends > div:nth-child(2){animation:zfriend2 6s ease infinite}
+  .z-ref-friends > div:nth-child(3){animation:zfriend3 6s ease infinite}
+  .z-ref-friends > div:nth-child(4){animation:zfriend4 6s ease infinite}
+  @supports (animation-timeline: view()){
+    .z-reveal{animation:zreveal linear both;animation-timeline:view();animation-range:entry 0% entry 60%}
+  }
+}
+@keyframes ztravel{0%{stroke-dashoffset:412;opacity:0}10%{opacity:1}70%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes zmarch{to{stroke-dashoffset:-22}}
+@keyframes zspin{to{transform:rotate(360deg)}}
+@keyframes zfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes zlive{0%,100%{box-shadow:0 0 0 0 rgba(63,224,197,.6)}50%{box-shadow:0 0 0 6px rgba(63,224,197,0)}}
+@keyframes zblob1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(90px,70px) scale(1.14)}100%{transform:translate(-40px,30px) scale(.96)}}
+@keyframes zblob2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-110px,60px) scale(.9)}100%{transform:translate(50px,-40px) scale(1.1)}}
+@keyframes zblob3{0%{transform:translate(0,0) scale(1.05)}50%{transform:translate(70px,-60px) scale(.92)}100%{transform:translate(-60px,50px) scale(1.12)}}
+@keyframes zshoot{0%{opacity:0;transform:rotate(18deg) translateX(0)}4%{opacity:.9}14%{opacity:0;transform:rotate(18deg) translateX(150vw)}100%{opacity:0;transform:rotate(18deg) translateX(150vw)}}
+@keyframes zpar-far{to{transform:translateY(-90px)}}
+@keyframes zpar-near{to{transform:translateY(-260px)}}
+@keyframes ztwinkle{from{opacity:.35}to{opacity:.85}}
+@keyframes zgrad{to{background-position:100% 0}}
+@keyframes zshine{0%{left:-60%}35%,100%{left:130%}}
+@keyframes zborder{to{--za:360deg}}
+@keyframes zflow{to{background-position:32px 0}}
+@keyframes zmarch2{to{stroke-dashoffset:-20}}
+@property --pct{syntax:"<integer>";inherits:false;initial-value:100}
+@keyframes zmeter{
+  0%{clip-path:inset(0 100% 0 0);opacity:0}
+  4%,8%{clip-path:inset(0 100% 0 0);opacity:1}
+  18%,28%{clip-path:inset(0 75% 0 0)}
+  38%,48%{clip-path:inset(0 50% 0 0)}
+  58%,68%{clip-path:inset(0 25% 0 0)}
+  78%,92%{clip-path:inset(0 0 0 0);opacity:1}
+  97%{clip-path:inset(0 0 0 0);opacity:0}
+  100%{clip-path:inset(0 100% 0 0);opacity:0}
+}
+@keyframes zpct{0%,8%{--pct:0}18%,28%{--pct:25}38%,48%{--pct:50}58%,68%{--pct:75}78%,92%{--pct:100}97%{--pct:100}100%{--pct:0}}
+@keyframes zfriend1{0%,14%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}18%,92%{border-color:rgba(63,224,197,.55);background-color:rgba(63,224,197,.1)}97%,100%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}}
+@keyframes zfriend2{0%,34%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}38%,92%{border-color:rgba(63,224,197,.55);background-color:rgba(63,224,197,.1)}97%,100%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}}
+@keyframes zfriend3{0%,54%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}58%,92%{border-color:rgba(63,224,197,.55);background-color:rgba(63,224,197,.1)}97%,100%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}}
+@keyframes zfriend4{0%,74%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}78%,92%{border-color:rgba(63,224,197,.55);background-color:rgba(63,224,197,.1)}97%,100%{border-color:rgba(255,255,255,.08);background-color:rgba(255,255,255,.04)}}
+@keyframes zreveal{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+.z-orbit{transform-box:view-box;transform-origin:440px 170px}
+.z-orbit-nodes{transform-box:view-box;transform-origin:440px 170px}
+.z-node{transform-box:fill-box;transform-origin:center}
+.z-floats > .z-float{position:absolute;left:0;top:2%}
+.z-floats > .z-float2{position:absolute;left:0;bottom:1%}
+.z-bg{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.z-aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.z-aurora span{position:absolute;border-radius:50%;filter:blur(80px)}
+.z-aurora span:nth-child(1){width:560px;height:440px;left:-140px;top:0;background:#1D55D0;opacity:.5}
+.z-aurora span:nth-child(2){width:480px;height:400px;right:2%;top:8%;background:#1BA6C9;opacity:.32}
+.z-aurora span:nth-child(3){width:520px;height:420px;left:30%;top:30%;background:#3FE0C5;opacity:.12}
+.z-aurora span:nth-child(4){width:600px;height:460px;right:-120px;top:56%;background:#1D55D0;opacity:.3}
+.z-aurora span:nth-child(5){width:460px;height:380px;left:-100px;top:78%;background:#27C4E8;opacity:.16}
+.z-sky{position:absolute;left:0;right:0;top:-10%;height:120%}
+.z-sky-far{opacity:.45;background-image:radial-gradient(1px 1px at 12% 6%,#fff,transparent 60%),radial-gradient(1px 1px at 34% 14%,#bff5ff,transparent 60%),radial-gradient(1px 1px at 58% 4%,#fff,transparent 60%),radial-gradient(1px 1px at 76% 17%,#fff,transparent 60%),radial-gradient(1px 1px at 90% 9%,#bff5ff,transparent 60%),radial-gradient(1px 1px at 22% 19%,#fff,transparent 60%);background-size:100% 320px}
+.z-sky-near{opacity:.7;background-image:radial-gradient(1.7px 1.7px at 18% 10%,#fff,transparent 60%),radial-gradient(2px 2px at 46% 3%,#d9fbff,transparent 60%),radial-gradient(1.6px 1.6px at 68% 13%,#fff,transparent 60%),radial-gradient(1.8px 1.8px at 86% 6%,#bff5ff,transparent 60%);background-size:100% 520px}
+.z-shoot i{position:absolute;width:160px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9));opacity:0;transform:rotate(18deg)}
+.z-shoot i:nth-child(1){top:8%;left:-14%}
+.z-shoot i:nth-child(2){top:34%;left:-14%}
+.z-shoot i:nth-child(3){top:72%;left:-14%}
+.z-grad{background:linear-gradient(90deg,#27C4E8,#3FE0C5,#9BF3E4,#27C4E8);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.z-main{position:relative;overflow:hidden;isolation:isolate}
+.z-main::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);z-index:-1;pointer-events:none}
+.z-card{position:relative;--mx:50%;--my:0%}
+.z-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;background:radial-gradient(220px 220px at var(--mx) var(--my),rgba(63,224,197,.95),rgba(39,196,232,.45) 38%,transparent 68%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .45s ease;pointer-events:none;z-index:1}
+.z-card:hover::before{opacity:1}
+.z-glow-border{position:relative}
+.z-glow-border::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1.5px;background:conic-gradient(from var(--za,0deg),transparent 0 55%,#27C4E8 70%,#3FE0C5 80%,transparent 92%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@property --za{syntax:"<angle>";inherits:false;initial-value:0deg}
+.z-meter{position:relative;height:14px;border-radius:7px;overflow:hidden;background:rgba(255,255,255,.07);-webkit-mask:linear-gradient(90deg,#000 calc(25% - 2px),transparent 0 calc(25% + 2px),#000 0 calc(50% - 2px),transparent 0 calc(50% + 2px),#000 0 calc(75% - 2px),transparent 0 calc(75% + 2px),#000 0);mask:linear-gradient(90deg,#000 calc(25% - 2px),transparent 0 calc(25% + 2px),#000 0 calc(50% - 2px),transparent 0 calc(50% + 2px),#000 0 calc(75% - 2px),transparent 0 calc(75% + 2px),#000 0)}
+.z-meter-fill{position:absolute;inset:0;background:linear-gradient(90deg,#27C4E8,#3FE0C5);clip-path:inset(0 0 0 0)}
+.z-ref-friends > div{transition:border-color .3s,background-color .3s}
+.z-flowline{background-size:32px 2px !important}
+.z-faq summary{cursor:pointer;list-style:none;position:relative}
+.z-faq summary::-webkit-details-marker{display:none}
+.z-faq summary::after{content:"";position:absolute;right:4px;top:30px;width:9px;height:9px;border-right:2px solid #27C4E8;border-bottom:2px solid #27C4E8;transform:rotate(45deg);transition:transform .2s}
+.z-faq details[open] summary::after{transform:rotate(-135deg);top:34px}
+.z-faq details[open]{border-color:rgba(39,196,232,.3) !important}
+.z-foot a{color:#AEBBDA;text-decoration:none}.z-foot a:hover{color:#FFFFFF}
+@media (max-width:980px){
+  .z-hero-grid{grid-template-columns:1fr !important;gap:8px !important;padding:24px 0 56px !important}
+  .z-visual{max-width:520px;margin:0 auto;width:100%}
+  .z-bento{grid-template-columns:1fr 1fr !important}
+  .z-bento > *{grid-column:auto !important;grid-row:auto !important}
+  .z-bento > .z-wide{grid-column:1 / -1 !important}
+  .z-bento > .z-late{order:10}
+  .z-faq-grid{grid-template-columns:1fr !important}
+  .z-ref{grid-template-columns:1fr !important;padding:40px 32px !important}
+  .z-steps{grid-template-columns:1fr !important}
+  .z-steps-line{display:none !important}
+  .z-prices{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .z-price-wrap{grid-template-columns:1fr !important}
+}
+@media (max-width:680px){
+  body{font-size:16px}
+  .z-nav a:not(.z-cab){display:none}
+  .z-stats{grid-template-columns:1fr 1fr !important}
+  .z-bento{grid-template-columns:1fr !important}
+  .z-block{padding:72px 0 !important}
+  .z-btn{width:100%;justify-content:center}
+  .z-price{padding:18px 16px !important;min-height:104px !important}
+  .z-card{padding:26px 22px !important}
+  .z-flow-arrow{display:none}
+  .z-flow{grid-template-columns:1fr auto !important}
+  .z-cta{padding:40px 24px !important}
+  .z-ref{padding:32px 20px !important}
+  .z-ref-friends{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+  .z-route .z-t-main{font-size:24px !important}
+  .z-route .z-t-sub{display:none}
+  .z-route .z-t-node{font-size:20px !important}
+  .z-route .z-t-hub{font-size:16px !important}
+  .z-route .z-t-box{font-size:16px !important}
+  .z-route .z-t-box2{font-size:14px !important}
+  .z-route .z-t-vpn{font-size:18px !important}
+  .z-floats{position:static !important;display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+  .z-floats > div{position:static !important;flex:1 1 220px}
+  .z-visual{margin:0 -8px !important;width:auto !important}
+}
+</style>
+</head>
+<body>
+
+<div style="position: relative; isolation: isolate; width: 100%; background-color: #070D22; color: #EAF0FF; overflow: hidden;">
+<div class="z-bg" aria-hidden="true"><div class="z-aurora"><span></span><span></span><span></span><span></span><span></span></div><div class="z-sky z-sky-far"></div><div class="z-sky z-sky-near"></div><div class="z-shoot"><i></i><i></i><i></i></div></div>
+
+<header id="top" style="position: relative; background: radial-gradient(700px 520px at 78% 38%, rgba(39,196,232,.20), transparent 65%), radial-gradient(800px 600px at 5% 0%, rgba(29,85,208,.40), transparent 60%);">
+  <div class="z-top">
+    <div class="z-top-in">
+      <a href="#top" aria-label="Zanity VPN — на главную" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font: 700 19px/1 &quot;Unbounded&quot;, sans-serif;">
+        <img src="/apple-touch-icon.png" alt="" width="34" height="34" style="width: 34px; height: 34px; border-radius: 9px;">
+        <b style="font-weight: 700;">Zanity<span style="color: #27C4E8;">VPN</span></b>
+      </a>
+      <nav class="z-nav" aria-label="Разделы" style="display: flex; align-items: center; gap: 28px; font-size: 15px;">
+        <a href="#features">Возможности</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#faq">Вопросы</a>
+        <a class="z-cab" href="https://cabinet.zanity.net/" style="white-space: nowrap; border: 1px solid rgba(255,255,255,.2); padding: 9px 16px; border-radius: 999px;">Личный кабинет</a>
+      </nav>
+    </div>
+  </div>
+
+  <div style="max-width: 1200px; margin: 0 auto; padding: var(--top-h) 24px 0;">
+    <div class="z-hero-grid" style="display: grid; grid-template-columns: 1fr 1.02fr; gap: 32px; align-items: center; padding: 56px 0 96px;">
+      <div style="display: flex; flex-direction: column; align-items: flex-start;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border-radius: 999px; background: rgba(63,224,197,.1); border: 1px solid rgba(63,224,197,.28); font-size: 14px; color: #BFF5EA;">
+          <span class="z-live" style="width: 8px; height: 8px; border-radius: 50%; background: #3FE0C5;"></span>
+          Первые сутки бесплатно, без карты
+        </div>
+        <h1 style="margin-top: 26px; font-size: clamp(34px, 4.4vw, 60px); color: #FFFFFF;">Свободный интернет, который <span class="z-grad" style="color: #3FE0C5;">не нужно выключать</span></h1>
+        <p style="font-size: clamp(17px, 1.5vw, 20px); color: #AEBBDA; max-width: 30em; margin: 24px 0 36px;">Заблокированное идёт через VPN, российские сайты открываются напрямую.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+          <a class="z-btn z-main" href="https://cabinet.zanity.net/" style="display: inline-flex; align-items: center; gap: 10px; font: 600 17px/1 &quot;Onest&quot;, sans-serif; text-decoration: none; padding: 19px 26px; border-radius: 14px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B; box-shadow: 0 10px 34px -10px rgba(39,196,232,.7);">
+            Попробовать бесплатно
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; flex: none;" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+          <a class="z-btn z-ghost" href="#pricing" style="display: inline-flex; align-items: center; gap: 10px; font: 600 17px/1 &quot;Onest&quot;, sans-serif; text-decoration: none; padding: 19px 24px; border-radius: 14px; color: #FFFFFF; border: 1px solid rgba(255,255,255,.2);">Тарифы от 167 ₽/мес</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; font-size: 14px; color: #8C9AC0;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Любые устройства</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>YouTube без рекламы</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 16px; height: 16px;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Оплата в рублях</span>
+        </div>
+      </div>
+
+      <div class="z-visual" style="position: relative; min-width: 0;">
+        <svg class="z-route" viewBox="0 0 600 520" role="img" aria-labelledby="route-title" style="width: 100%; height: auto; display: block; overflow: visible;">
+          <title id="route-title">Заблокированные сайты идут через Zanity VPN в свободный интернет, российские сайты открываются напрямую</title>
+          <defs>
+            <linearGradient id="zg" x1="0" x2="1">
+              <stop offset="0" stop-color="#27C4E8"></stop>
+              <stop offset="1" stop-color="#3FE0C5"></stop>
+            </linearGradient>
+            <radialGradient id="zglow">
+              <stop offset="0" stop-color="#27C4E8" stop-opacity=".42"></stop>
+              <stop offset="1" stop-color="#27C4E8" stop-opacity="0"></stop>
+            </radialGradient>
+            <clipPath id="zfc" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"></circle></clipPath>
+            <radialGradient id="zglobe" cx=".35" cy=".3" r=".8">
+              <stop offset="0" stop-color="#1B3F8A"></stop>
+              <stop offset="1" stop-color="#0A1433"></stop>
+            </radialGradient>
+          </defs>
+
+          <circle cx="440" cy="170" r="140" fill="url(#zglow)"></circle>
+          <circle cx="440" cy="170" r="100" fill="none" stroke="rgba(174,187,218,.12)" stroke-width="1"></circle>
+          <g class="z-orbit">
+            <circle cx="440" cy="170" r="122" fill="none" stroke="rgba(39,196,232,.3)" stroke-width="1.5" stroke-dasharray="2 10"></circle>
+            <circle cx="562" cy="170" r="3" fill="#3FE0C5"></circle>
+            <circle cx="318" cy="170" r="2.5" fill="#27C4E8"></circle>
+          </g>
+
+          <circle cx="440" cy="170" r="78" fill="url(#zglobe)" stroke="#27C4E8" stroke-width="2"></circle>
+          <g fill="none" stroke="rgba(39,196,232,.45)" stroke-width="1.2">
+            <ellipse cx="440" cy="170" rx="30" ry="78"><animate attributeName="rx" values="78;0;78" keyTimes="0;0.5;1" dur="9s" begin="0s" repeatCount="indefinite"></animate></ellipse>
+            <ellipse cx="440" cy="170" rx="58" ry="78"><animate attributeName="rx" values="78;0;78" keyTimes="0;0.5;1" dur="9s" begin="-3s" repeatCount="indefinite"></animate></ellipse>
+            <ellipse cx="440" cy="170" rx="58" ry="78"><animate attributeName="rx" values="78;0;78" keyTimes="0;0.5;1" dur="9s" begin="-6s" repeatCount="indefinite"></animate></ellipse>
+            <path d="M362 170 H518 M373 130 H507 M373 210 H507"></path>
+          </g>
+
+          <g class="z-orbit-nodes">
+            <g class="z-node">
+              <circle cx="353" cy="120" r="21" fill="rgba(39,196,232,.16)"></circle>
+              <g clip-path="url(#zfc)"><rect x="337" y="104" width="32" height="10.67" fill="#AE1C28"></rect><rect x="337" y="114.67" width="32" height="10.67" fill="#FFFFFF"></rect><rect x="337" y="125.33" width="32" height="10.77" fill="#21468B"></rect></g>
+              <circle cx="353" cy="120" r="16" fill="none" stroke="#27C4E8" stroke-width="1.8"></circle>
+            </g>
+            <g class="z-node">
+              <circle cx="490" cy="83" r="21" fill="rgba(39,196,232,.16)"></circle>
+              <g clip-path="url(#zfc)"><rect x="474" y="67" width="32" height="32" fill="#FFFFFF"></rect><rect x="482.64" y="67" width="7.04" height="32" fill="#1A4AA0"></rect><rect x="474" y="79.48" width="32" height="7.04" fill="#1A4AA0"></rect></g>
+              <circle cx="490" cy="83" r="16" fill="none" stroke="#27C4E8" stroke-width="1.8"></circle>
+            </g>
+            <g class="z-node">
+              <circle cx="532" cy="206" r="21" fill="rgba(39,196,232,.16)"></circle>
+              <g clip-path="url(#zfc)"><rect x="516" y="190" width="32" height="10.67" fill="#111111"></rect><rect x="516" y="200.67" width="32" height="10.67" fill="#DD0000"></rect><rect x="516" y="211.33" width="32" height="10.77" fill="#FFCE00"></rect></g>
+              <circle cx="532" cy="206" r="16" fill="none" stroke="#27C4E8" stroke-width="1.8"></circle>
+            </g>
+            <g class="z-node">
+              <circle cx="390" cy="257" r="16" fill="#0D1840" stroke="#3FE0C5" stroke-width="1.5" stroke-dasharray="3 3"></circle>
+              <text x="390" y="262" text-anchor="middle" style="font-family: &quot;Unbounded&quot;, sans-serif; font-size: 13px; font-weight: 700; fill: #3FE0C5;">+</text>
+            </g>
+          </g>
+          <text class="z-t-main" x="440" y="320" text-anchor="middle" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 17px; font-weight: 600; fill: #FFFFFF;">Свободный интернет</text>
+          <text class="z-t-sub" x="440" y="342" text-anchor="middle" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 13px; fill: #9AA8C7;">YouTube, соцсети, зарубежные сервисы</text>
+
+          <path d="M246 300 C 296 262, 318 224, 366 206" fill="none" stroke="rgba(39,196,232,.13)" stroke-width="18" stroke-linecap="round"></path>
+          <path class="z-path" d="M246 300 C 296 262, 318 224, 366 206"></path>
+          <path class="z-pulse" d="M246 300 C 296 262, 318 224, 366 206"></path>
+          <path class="z-pulse z-p2" d="M246 300 C 296 262, 318 224, 366 206"></path>
+          <circle cx="307" cy="244" r="14" fill="#0D1840" stroke="#27C4E8" stroke-width="1.5"></circle>
+          <g fill="none" stroke="#3FE0C5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="301" y="243" width="12" height="8" rx="1.5"></rect>
+            <path d="M303.5 243v-2.5a3.5 3.5 0 0 1 7 0V243"></path>
+          </g>
+          <text class="z-t-vpn" x="288" y="224" text-anchor="end" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 13px; font-weight: 600; fill: #5FD6F0;">через VPN</text>
+
+          <path class="z-direct" d="M246 344 C 296 384, 336 440, 396 448" fill="none" stroke="rgba(174,187,218,.45)" stroke-width="2" stroke-dasharray="4 7" stroke-linecap="round"></path>
+          <rect x="396" y="418" width="176" height="60" rx="14" fill="#0C1638" stroke="rgba(255,255,255,.16)"></rect>
+          <text class="z-t-box" x="484" y="443" text-anchor="middle" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 14.5px; font-weight: 600; fill: #FFFFFF;">Российские сайты</text>
+          <text class="z-t-box2" x="484" y="464" text-anchor="middle" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 13px; fill: #9AA8C7;">напрямую, без VPN</text>
+
+          <path d="M100 322 H166" stroke="rgba(201,211,238,.6)" stroke-width="2" stroke-linecap="round"></path>
+          <rect x="52" y="286" width="44" height="72" rx="10" fill="#0D1840" stroke="#C9D3EE" stroke-width="1.8"></rect>
+          <path d="M70 348 h8" stroke="#C9D3EE" stroke-width="1.8" stroke-linecap="round"></path>
+          <text class="z-t-node" x="74" y="386" text-anchor="middle" style="font-family: &quot;Onest&quot;, sans-serif; font-size: 14px; fill: #C9D3EE;">Вы</text>
+
+          <circle cx="210" cy="322" r="70" fill="url(#zglow)"></circle>
+          <circle cx="210" cy="322" r="40" fill="#0D1840" stroke="#27C4E8" stroke-width="2"></circle>
+          <image href="/icon-512.png" x="184" y="296" width="52" height="52"></image>
+          <text class="z-t-hub" x="210" y="386" text-anchor="middle" style="font-family: &quot;Unbounded&quot;, sans-serif; font-size: 12px; font-weight: 700; fill: #5FD6F0;">Zanity VPN</text>
+        </svg>
+
+        <div class="z-floats">
+          <div class="z-float" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px; border-radius: 16px; background: rgba(13,24,64,.85); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(12px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.8);">
+            <div style="width: 38px; height: 38px; flex: none; border-radius: 11px; display: grid; place-items: center; background: rgba(255,90,90,.14);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px;" fill="none" stroke="#FF8A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"></rect><path d="m10 9.5 5 2.5-5 2.5z" fill="#FF8A8A"></path></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0;">
+              <span style="font-size: 14px; font-weight: 600; color: #FFFFFF;">YouTube без рекламы</span>
+              <span style="font-size: 12.5px; color: #9AA8C7;">специальные локации</span>
+            </div>
+          </div>
+          <div class="z-float2" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px 12px 12px; border-radius: 16px; background: rgba(13,24,64,.85); border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(12px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.8);">
+            <div class="z-live" style="width: 38px; height: 38px; flex: none; border-radius: 11px; display: grid; place-items: center; background: rgba(63,224,197,.14);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px;" fill="none" stroke="#3FE0C5" stroke-width="2" stroke-linecap="round"><path d="M12 3v8"></path><path d="M6.3 7.5a8 8 0 1 0 11.4 0"></path></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; min-width: 0;">
+              <span style="font-size: 14px; font-weight: 600; color: #FFFFFF;">Включил и забыл</span>
+              <span style="font-size: 12.5px; color: #9AA8C7;">банки и Госуслуги работают</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(10,20,51,.6);">
+    <div class="z-stats" style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font: 700 30px/1.1 &quot;Unbounded&quot;, sans-serif; color: #FFFFFF;">1 день</span>
+        <span style="font-size: 14px; color: #8C9AC0;">бесплатно, без карты</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font: 600 40px/0.8 system-ui, sans-serif; color: #FFFFFF; height: 33px; display: flex; align-items: center;">∞</span>
+        <span style="font-size: 14px; color: #8C9AC0;">трафика в любом тарифе</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font: 700 30px/1.1 &quot;Unbounded&quot;, sans-serif; color: #FFFFFF;">3</span>
+        <span style="font-size: 14px; color: #8C9AC0;">устройства в подписке</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font: 700 30px/1.1 &quot;Unbounded&quot;, sans-serif; color: #FFFFFF;">2 мин</span>
+        <span style="font-size: 14px; color: #8C9AC0;">от входа до подключения</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="z-block" id="features" style="padding: 112px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="z-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px;">
+        <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-transform: uppercase; letter-spacing: .12em;">Что входит</span>
+        <h2 style="font-size: clamp(28px, 3.4vw, 44px); color: #FFFFFF;">Включаете один раз и больше о нём не думаете</h2>
+      </div>
+
+      <div class="z-bento" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(220px, auto); gap: 18px; margin-top: 56px;">
+        <div class="z-reveal z-card z-wide" style="grid-column: span 2; grid-row: span 2; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 36px; border-radius: 26px; background: radial-gradient(500px 300px at 90% 100%, rgba(39,196,232,.18), transparent 70%), rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08);">
+          <div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
+            <h3 style="font-size: 26px; color: #FFFFFF;">Можно не выключать никогда</h3>
+            <p style="margin: 0; color: #AEBBDA;">Через VPN идёт только заблокированное. Российские сайты, банки и Госуслуги работают напрямую.</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+            <div class="z-flow" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; background: rgba(39,196,232,.08); border: 1px solid rgba(39,196,232,.28);">
+              <span style="font: 500 15px/1.3 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">youtube.com</span>
+              <svg class="z-flow-arrow z-flow-live" viewBox="0 0 48 12" aria-hidden="true" style="width: 48px; height: 12px;" fill="none" stroke="#3FE0C5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h42M38 1l6 5-6 5"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-align: right;">через Zanity VPN</span>
+            </div>
+            <div class="z-flow" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.1);">
+              <span style="font: 500 15px/1.3 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">gosuslugi.ru</span>
+              <svg class="z-flow-arrow" viewBox="0 0 48 12" aria-hidden="true" style="width: 48px; height: 12px;" fill="none" stroke="#9AA8C7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3 4"><path d="M2 6h42"></path><path d="M38 1l6 5-6 5" stroke-dasharray="none"></path></svg>
+              <span style="font-size: 14px; font-weight: 600; color: #AEBBDA; text-align: right;">напрямую</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 30px; border-radius: 26px; background: radial-gradient(300px 200px at 100% 0%, rgba(255,90,90,.14), transparent 70%), rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08);">
+          <div style="width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(255,90,90,.14);">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 26px; height: 26px;" fill="none" stroke="#FF8A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="4"></rect><path d="m10 9.5 5 2.5-5 2.5z" fill="#FF8A8A"></path></svg>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">YouTube без рекламы</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">Отдельные локации для роликов без рекламы.</p>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 30px; border-radius: 26px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08);">
+          <span style="font: 700 56px/1 &quot;Unbounded&quot;, sans-serif; color: #3FE0C5;">∞</span>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">Безлимитный трафик</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">Без счётчика гигабайт.</p>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card z-wide" style="grid-column: span 2; display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 30px 36px; border-radius: 26px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); flex-wrap: wrap;">
+          <div style="display: flex; flex-direction: column; gap: 8px; max-width: 420px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">Работает на любых устройствах</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">iPhone, Android, Windows, macOS, Linux. Три устройства в тарифе.</p>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: flex-end;">
+            <div style="width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 28px; height: 28px;" fill="none" stroke="#C9D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg>
+            </div>
+            <div style="width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 30px; height: 30px;" fill="none" stroke="#C9D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"></rect><path d="M2 19h20"></path></svg>
+            </div>
+            <div style="width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 28px; height: 28px;" fill="none" stroke="#C9D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"></rect><path d="M11 18h2"></path></svg>
+            </div>
+            <div style="width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 28px; height: 28px;" fill="none" stroke="#C9D3EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 30px; border-radius: 26px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08);">
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <svg viewBox="0 0 32 32" role="img" aria-label="Нидерланды" style="width: 36px; height: 36px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(39,196,232,.5);"><rect x="0" y="0" width="32" height="10.67" fill="#AE1C28"></rect><rect x="0" y="10.67" width="32" height="10.67" fill="#FFFFFF"></rect><rect x="0" y="21.33" width="32" height="10.77" fill="#21468B"></rect></svg>
+            <svg viewBox="0 0 32 32" role="img" aria-label="Германия" style="width: 36px; height: 36px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(39,196,232,.5);"><rect x="0" y="0" width="32" height="10.67" fill="#111111"></rect><rect x="0" y="10.67" width="32" height="10.67" fill="#DD0000"></rect><rect x="0" y="21.33" width="32" height="10.77" fill="#FFCE00"></rect></svg>
+            <svg viewBox="0 0 32 32" role="img" aria-label="Финляндия" style="width: 36px; height: 36px; border-radius: 50%; box-shadow: 0 0 0 2px rgba(39,196,232,.5);"><rect x="0" y="0" width="32" height="32" fill="#FFFFFF"></rect><rect x="8.64" y="0" width="7.04" height="32" fill="#1A4AA0"></rect><rect x="0" y="12.48" width="32" height="7.04" fill="#1A4AA0"></rect></svg>
+            <span aria-label="и другие" style="width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 1.5px dashed rgba(63,224,197,.7); color: #3FE0C5; font: 700 15px/1 &quot;Unbounded&quot;, sans-serif; box-sizing: border-box;">+</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">Несколько стран на выбор</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">Новые локации добавляются постоянно.</p>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card z-wide z-late" style="grid-column: span 2; display: flex; align-items: center; justify-content: space-between; gap: 24px 28px; padding: 30px 36px; border-radius: 26px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); flex-wrap: wrap;">
+          <div style="display: flex; flex-direction: column; gap: 8px; max-width: 440px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">Личный кабинет открывается без VPN</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">Оплата, устройства и поддержка в браузере. Или то же самое в Telegram-боте.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <a href="https://cabinet.zanity.net/" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B; text-decoration: none; font-weight: 600; font-size: 15px;">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"></rect><path d="M3 9h18"></path></svg>
+              Личный кабинет
+            </a>
+            <a href="https://t.me/zanity_vpn_bot" style="display: inline-flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: rgba(39,196,232,.12); border: 1px solid rgba(39,196,232,.3); color: #BFEFFA; text-decoration: none; font-weight: 600; font-size: 15px;">
+              <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.1 1.7 11.6c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"></path></svg>
+              Telegram-бот
+            </a>
+          </div>
+        </div>
+
+        <div class="z-reveal z-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 30px; border-radius: 26px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08);">
+          <div style="width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; background: rgba(39,196,232,.12);">
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 26px; height: 26px;" fill="none" stroke="#27C4E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <h3 style="font-size: 19px; color: #FFFFFF;">Шифрование трафика</h3>
+            <p style="margin: 0; color: #AEBBDA; font-size: 15px;">Защита данных в публичных Wi-Fi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="z-block" id="how" style="padding: 112px 0; border-top: 1px solid rgba(255,255,255,.07);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="z-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px;">
+        <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-transform: uppercase; letter-spacing: .12em;">Как подключиться</span>
+        <h2 style="font-size: clamp(28px, 3.4vw, 44px); color: #FFFFFF;">Три шага, пара минут</h2>
+      </div>
+      <div style="position: relative; margin-top: 56px;">
+        <div class="z-steps-line z-flowline" style="position: absolute; top: 28px; left: 28px; right: calc((100% - 156px) / 3); height: 2px; background: repeating-linear-gradient(90deg, rgba(39,196,232,.45) 0 8px, transparent 8px 16px);"></div>
+        <ol class="z-steps" style="position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px;">
+          <li class="z-reveal" style="display: flex; flex-direction: column; gap: 14px;">
+            <span style="width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font: 700 20px/1 &quot;Unbounded&quot;, sans-serif; color: #06112B; background: linear-gradient(135deg, #27C4E8, #3FE0C5); box-shadow: 0 0 0 8px #070D22;">1</span>
+            <h3 style="font-size: 20px; color: #FFFFFF; margin-top: 10px;">Зарегистрируйтесь</h3>
+            <p style="margin: 0; color: #AEBBDA;">Создайте аккаунт в <a href="https://cabinet.zanity.net/">личном кабинете</a> через Telegram или e-mail, это займёт минуту.</p>
+          </li>
+          <li class="z-reveal" style="display: flex; flex-direction: column; gap: 14px;">
+            <span style="width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font: 700 20px/1 &quot;Unbounded&quot;, sans-serif; color: #06112B; background: linear-gradient(135deg, #27C4E8, #3FE0C5); box-shadow: 0 0 0 8px #070D22;">2</span>
+            <h3 style="font-size: 20px; color: #FFFFFF; margin-top: 10px;">Включите пробный период</h3>
+            <p style="margin: 0; color: #AEBBDA;">Сутки бесплатно. Понравится, выберите тариф и пополните баланс в рублях.</p>
+          </li>
+          <li class="z-reveal" style="display: flex; flex-direction: column; gap: 14px;">
+            <span style="width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font: 700 20px/1 &quot;Unbounded&quot;, sans-serif; color: #06112B; background: linear-gradient(135deg, #27C4E8, #3FE0C5); box-shadow: 0 0 0 8px #070D22;">3</span>
+            <h3 style="font-size: 20px; color: #FFFFFF; margin-top: 10px;">Добавьте подписку</h3>
+            <p style="margin: 0; color: #AEBBDA;">Установите INCY или другое совместимое приложение и добавьте подписку одной кнопкой из кабинета.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="z-block" id="pricing" style="padding: 112px 0; border-top: 1px solid rgba(255,255,255,.07); background: radial-gradient(900px 500px at 50% 0%, rgba(29,85,208,.22), transparent 70%);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="z-reveal" style="display: flex; flex-direction: column; gap: 14px; max-width: 720px;">
+        <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-transform: uppercase; letter-spacing: .12em;">Тарифы</span>
+        <h2 style="font-size: clamp(28px, 3.4vw, 44px); color: #FFFFFF;">Один тариф, выбираете только срок</h2>
+        <p style="margin: 0; color: #AEBBDA;">Безлимитный трафик и три устройства в любом периоде. Чем дольше, тем дешевле месяц.</p>
+      </div>
+
+      <div class="z-reveal z-price-wrap" style="display: grid; grid-template-columns: 1.55fr 1fr; gap: 20px; margin-top: 52px; align-items: stretch;">
+        <div class="z-prices" role="group" aria-label="Период подписки" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 14px;">
+          <button type="button" class="z-price" data-label="14 дней" data-price="109 ₽" data-sub="чтобы присмотреться" data-save="" aria-pressed="false" style="position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 22px 24px; min-height: 120px; border-radius: 20px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.09);">
+            <span style="font-size: 17px; font-weight: 600; color: #FFFFFF;">14 дней</span>
+            <span style="font: 700 24px/1.2 &quot;Unbounded&quot;, sans-serif; color: #5FD6F0;">109 ₽</span>
+            <span style="font-size: 13px; color: #8C9AC0;">чтобы присмотреться</span>
+          </button>
+          <button type="button" class="z-price" data-label="1 месяц" data-price="199 ₽" data-sub="199 ₽ в месяц" data-save="" aria-pressed="false" style="position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 22px 24px; min-height: 120px; border-radius: 20px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.09);">
+            <span style="font-size: 17px; font-weight: 600; color: #FFFFFF;">1 месяц</span>
+            <span style="font: 700 24px/1.2 &quot;Unbounded&quot;, sans-serif; color: #5FD6F0;">199 ₽</span>
+            <span style="font-size: 13px; color: #8C9AC0;">199 ₽ в месяц</span>
+          </button>
+          <button type="button" class="z-price" data-label="3 месяца" data-price="579 ₽" data-sub="193 ₽ в месяц" data-save="экономия 3%" aria-pressed="false" style="position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 22px 24px; min-height: 120px; border-radius: 20px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.09);">
+            <span style="font-size: 17px; font-weight: 600; color: #FFFFFF;">3 месяца</span>
+            <span style="font: 700 24px/1.2 &quot;Unbounded&quot;, sans-serif; color: #5FD6F0;">579 ₽</span>
+            <span style="font-size: 13px; color: #8C9AC0;">193 ₽ в месяц</span>
+          </button>
+          <button type="button" class="z-price" data-label="6 месяцев" data-price="1 099 ₽" data-sub="183,17 ₽ в месяц" data-save="экономия 8%" aria-pressed="false" style="position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 22px 24px; min-height: 120px; border-radius: 20px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.09);">
+            <span style="font-size: 17px; font-weight: 600; color: #FFFFFF;">6 месяцев</span>
+            <span style="font: 700 24px/1.2 &quot;Unbounded&quot;, sans-serif; color: #5FD6F0;">1 099 ₽</span>
+            <span style="font-size: 13px; color: #8C9AC0;">183,17 ₽ в месяц</span>
+          </button>
+          <button type="button" class="z-price z-span is-on" data-label="12 месяцев" data-price="1 999 ₽" data-sub="166,58 ₽ в месяц" data-save="экономия 16%" aria-pressed="true" style="position: relative; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 22px 24px; min-height: 120px; border-radius: 20px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.09);">
+            <span style="position: absolute; top: -11px; left: 18px; padding: 4px 10px; border-radius: 999px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B; font-size: 12px; font-weight: 700;">Выгоднее всего</span>
+            <span style="font-size: 17px; font-weight: 600; color: #FFFFFF;">12 месяцев</span>
+            <span style="font: 700 24px/1.2 &quot;Unbounded&quot;, sans-serif; color: #5FD6F0;">1 999 ₽</span>
+            <span style="font-size: 13px; color: #8C9AC0;">166,58 ₽ в месяц</span>
+          </button>
+        </div>
+
+        <div class="z-panel" style="display: flex; flex-direction: column; gap: 22px; padding: 30px; border-radius: 24px; background: rgba(12,22,56,.55); border: 1px solid rgba(39,196,232,.25); box-shadow: 0 30px 80px -40px rgba(39,196,232,.6);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px;">
+            <span style="font-size: 15px; color: #AEBBDA;">Стандартный · <span id="sel-label">12 месяцев</span></span>
+            <span id="sel-save" style="font-size: 13px; font-weight: 600; color: #3FE0C5;">экономия 16%</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span id="sel-price" style="font: 700 48px/1 &quot;Unbounded&quot;, sans-serif; color: #FFFFFF;">1 999 ₽</span>
+            <span id="sel-sub" style="font-size: 14px; color: #8C9AC0;">166,58 ₽ в месяц</span>
+          </div>
+          <ul style="list-style: none; margin: 0; padding: 20px 0 0; border-top: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; gap: 12px; font-size: 15px; color: #D5DDF2;">
+            <li style="display: flex; gap: 10px; align-items: center;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Безлимитный трафик</li>
+            <li style="display: flex; gap: 10px; align-items: center;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>3 устройства, можно докупить ещё</li>
+            <li style="display: flex; gap: 10px; align-items: center;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Все локации, новые добавляются постоянно</li>
+            <li style="display: flex; gap: 10px; align-items: center;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Локации для YouTube без рекламы</li>
+            <li style="display: flex; gap: 10px; align-items: center;"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 18px; height: 18px; flex: none;" fill="none" stroke="#3FE0C5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></svg>Автопродление с баланса, отключается в один клик</li>
+          </ul>
+          <a class="z-btn z-main" href="https://cabinet.zanity.net/" style="margin-top: auto; display: flex; justify-content: center; align-items: center; gap: 10px; font: 600 17px/1 &quot;Onest&quot;, sans-serif; text-decoration: none; padding: 19px 24px; border-radius: 14px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B;">Оформить подписку</a>
+          <span style="font-size: 13px; color: #8C9AC0; text-align: center;">Или начните с бесплатных суток</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="z-block" id="referral" style="padding: 112px 0; border-top: 1px solid rgba(255,255,255,.07);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="z-reveal z-ref z-glow-border" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding: 56px; border-radius: 32px; background: radial-gradient(600px 360px at 100% 100%, rgba(63,224,197,.22), transparent 70%), radial-gradient(500px 300px at 0% 0%, rgba(29,85,208,.35), transparent 70%), rgba(12,22,56,.55); border: 1px solid rgba(63,224,197,.25);">
+        <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start;">
+          <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-transform: uppercase; letter-spacing: .12em;">Реферальная программа</span>
+          <h2 style="font-size: clamp(28px, 3.4vw, 44px); color: #FFFFFF;">Приведите 4 друзей и пользуйтесь бесплатно</h2>
+          <p style="margin: 0; color: #C9D3EE; max-width: 30em;">С каждого пополнения друга 25% приходит вам на баланс. Четыре друга на таком же тарифе полностью покрывают вашу подписку.</p>
+          <a class="z-btn z-main" href="https://cabinet.zanity.net/" style="margin-top: 8px; display: inline-flex; align-items: center; gap: 10px; font: 600 17px/1 &quot;Onest&quot;, sans-serif; text-decoration: none; padding: 19px 26px; border-radius: 14px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B;">
+            Получить свою ссылку
+            <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; flex: none;" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div class="z-ref-friends" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px;">
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px 8px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(39,196,232,.14);">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px;" fill="none" stroke="#5FD6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+              </div>
+              <span style="font-size: 13px; color: #9AA8C7;">Друг 1</span>
+              <span style="font: 700 17px/1 &quot;Unbounded&quot;, sans-serif; color: #3FE0C5;">+25%</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px 8px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(39,196,232,.14);">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px;" fill="none" stroke="#5FD6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+              </div>
+              <span style="font-size: 13px; color: #9AA8C7;">Друг 2</span>
+              <span style="font: 700 17px/1 &quot;Unbounded&quot;, sans-serif; color: #3FE0C5;">+25%</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px 8px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(39,196,232,.14);">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px;" fill="none" stroke="#5FD6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+              </div>
+              <span style="font-size: 13px; color: #9AA8C7;">Друг 3</span>
+              <span style="font: 700 17px/1 &quot;Unbounded&quot;, sans-serif; color: #3FE0C5;">+25%</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; padding: 18px 8px; border-radius: 16px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);">
+              <div style="width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(39,196,232,.14);">
+                <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px;" fill="none" stroke="#5FD6F0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg>
+              </div>
+              <span style="font-size: 13px; color: #9AA8C7;">Друг 4</span>
+              <span style="font: 700 17px/1 &quot;Unbounded&quot;, sans-serif; color: #3FE0C5;">+25%</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px; padding: 22px 24px; border-radius: 18px; background: rgba(7,13,34,.6); border: 1px solid rgba(63,224,197,.3);">
+            <div class="z-meter" aria-hidden="true"><span class="z-meter-fill"></span></div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+              <span style="font-size: 15px; color: #D5DDF2;">Ваша подписка оплачена</span>
+              <span class="z-meter-pct" style="font: 700 28px/1 &quot;Unbounded&quot;, sans-serif; color: #FFFFFF; font-variant-numeric: tabular-nums; min-width: 3.4em; text-align: right;"><span class="z-meter-num">100%</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="z-block" id="faq" style="padding: 112px 0; border-top: 1px solid rgba(255,255,255,.07);">
+    <div class="z-faq-grid" style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px 64px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <span style="font-size: 14px; font-weight: 600; color: #3FE0C5; text-transform: uppercase; letter-spacing: .12em;">Вопросы</span>
+        <h2 style="font-size: clamp(28px, 3.4vw, 44px); color: #FFFFFF;">Частые вопросы</h2>
+        <p style="margin: 0; color: #AEBBDA;">Не нашли ответ? Напишите в поддержку прямо в <a href="https://t.me/zanity_vpn_bot">боте</a>.</p>
+      </div>
+      <div class="z-faq" style="display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">Как попробовать бесплатно?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">Войдите в <a href="https://cabinet.zanity.net/">личный кабинет</a> или откройте бота <a href="https://t.me/zanity_vpn_bot">@zanity_vpn_bot</a> и активируйте пробный период: сутки, 10 ГБ трафика, одно устройство. Карта не нужна.</p>
+        </details>
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">Нужно ли выключать VPN для российских сайтов?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">Нет. Через Zanity VPN идёт только трафик к сайтам и сервисам, заблокированным в России. Российские сайты и приложения открываются напрямую, поэтому VPN можно держать включённым всё время.</p>
+        </details>
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">На каких устройствах работает?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">iPhone и iPad, Android, Windows, macOS и Linux. Подписка импортируется в приложение INCY или другой совместимый клиент одной ссылкой.</p>
+        </details>
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">Сколько устройств можно подключить?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">В подписку входят три устройства. Если нужно больше, их можно добавить в боте или в личном кабинете.</p>
+        </details>
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">Как оплатить?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">Пополните баланс в рублях в боте или в <a href="https://cabinet.zanity.net/">личном кабинете</a> и выберите срок: 14 дней, 1, 3, 6 или 12 месяцев. Продление происходит автоматически с баланса, его можно отключить.</p>
+        </details>
+        <details class="z-reveal" style="border-radius: 18px; background: rgba(12,22,56,.55); border: 1px solid rgba(255,255,255,.08); padding: 0 24px;">
+          <summary style="padding: 22px 36px 22px 0; font: 600 17px/1.4 &quot;Onest&quot;, sans-serif; color: #FFFFFF;">Что делать, если что-то не работает?</summary>
+          <p style="margin: 0 0 22px; color: #AEBBDA;">Напишите в поддержку через раздел «Поддержка» в боте. Там же можно открыть обращение и отследить ответ.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 0 112px;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+      <div class="z-reveal z-cta z-glow-border" style="position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; padding: 72px 48px; border-radius: 32px; background: radial-gradient(600px 300px at 50% 120%, rgba(63,224,197,.35), transparent 70%), radial-gradient(500px 300px at 0% 0%, rgba(29,85,208,.5), transparent 70%), rgba(12,22,56,.55); border: 1px solid rgba(39,196,232,.25);">
+        <h2 style="font-size: clamp(28px, 3.8vw, 48px); color: #FFFFFF; max-width: 16em;">Попробуйте сутки бесплатно</h2>
+        <p style="margin: 0; color: #C9D3EE; max-width: 32em;">Без карты. Зарегистрируйтесь в личном кабинете через Telegram или e-mail, и через пару минут вы подключены.</p>
+        <a class="z-btn z-main" href="https://cabinet.zanity.net/" style="margin-top: 8px; display: inline-flex; align-items: center; gap: 10px; font: 600 17px/1 &quot;Onest&quot;, sans-serif; text-decoration: none; padding: 20px 30px; border-radius: 14px; background: linear-gradient(90deg, #27C4E8, #3FE0C5); color: #06112B; box-shadow: 0 10px 34px -10px rgba(39,196,232,.7);">
+          Начать бесплатно
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px; flex: none;" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <span style="font-size: 14px; color: #9AA8C7;">Удобнее в Telegram? Откройте бота <a href="https://t.me/zanity_vpn_bot">@zanity_vpn_bot</a></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="z-foot" style="border-top: 1px solid rgba(255,255,255,.07); color: #8C9AC0; font-size: 14px; padding: 36px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="/favicon.png" alt="" width="24" height="24" style="width: 24px; height: 24px; border-radius: 6px;">
+      <span>© 2026 Zanity VPN</span>
+    </div>
+    <nav aria-label="Ссылки" style="display: flex; gap: 24px; flex-wrap: wrap;">
+      <a href="https://t.me/zanity_vpn_bot">Telegram-бот</a>
+      <a href="https://cabinet.zanity.net/">Личный кабинет</a>
+    </nav>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.z-price');
+  var label = document.getElementById('sel-label');
+  var price = document.getElementById('sel-price');
+  var sub = document.getElementById('sel-sub');
+  var save = document.getElementById('sel-save');
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) {
+        b.classList.remove('is-on');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-on');
+      btn.setAttribute('aria-pressed', 'true');
+      label.textContent = btn.dataset.label;
+      price.textContent = btn.dataset.price;
+      sub.textContent = btn.dataset.sub;
+      save.textContent = btn.dataset.save;
+    });
+  });
+
+  var top = document.querySelector('.z-top');
+  function onScroll() { top.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.z-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

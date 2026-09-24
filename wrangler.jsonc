@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zanity-landing",
+  "compatibility_date": "2026-09-21",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    { "pattern": "zanityvpn.com", "custom_domain": true },
+    { "pattern": "www.zanityvpn.com", "custom_domain": true }
+  ]
+}
