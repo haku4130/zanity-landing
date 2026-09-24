@@ -33,44 +33,283 @@
       "@type": "Organization",
       "@id": "https://zanityvpn.com/#org",
       "name": "Zanity VPN",
-      "alternateName": ["ZanityVPN", "Занити ВПН"],
+      "alternateName": [
+        "ZanityVPN",
+        "Занити ВПН"
+      ],
       "url": "https://zanityvpn.com/",
       "logo": "https://zanityvpn.com/icon-512.png",
-      "sameAs": ["https://t.me/zanity_vpn_bot"]
+      "sameAs": [
+        "https://t.me/zanity_vpn_bot"
+      ]
     },
     {
       "@type": "WebSite",
       "name": "Zanity VPN",
       "url": "https://zanityvpn.com/",
       "inLanguage": "ru",
-      "publisher": {"@id": "https://zanityvpn.com/#org"}
+      "publisher": {
+        "@id": "https://zanityvpn.com/#org"
+      }
     },
     {
       "@type": "Product",
       "name": "Подписка Zanity VPN",
       "description": "Защищённое подключение: безлимитный трафик, три устройства, несколько локаций.",
-      "brand": {"@id": "https://zanityvpn.com/#org"},
+      "brand": {
+        "@type": "Brand",
+        "name": "Zanity VPN"
+      },
       "offers": [
-        {"@type": "Offer", "name": "14 дней", "price": "109", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
-        {"@type": "Offer", "name": "1 месяц", "price": "199", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
-        {"@type": "Offer", "name": "3 месяца", "price": "579", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
-        {"@type": "Offer", "name": "6 месяцев", "price": "1099", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"},
-        {"@type": "Offer", "name": "12 месяцев", "price": "1999", "priceCurrency": "RUB", "url": "https://zanityvpn.com/#pricing", "availability": "https://schema.org/InStock"}
+        {
+          "@type": "Offer",
+          "name": "14 дней",
+          "price": "109",
+          "priceCurrency": "RUB",
+          "url": "https://zanityvpn.com/#pricing",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "RUB"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "RU"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "RU",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "1 месяц",
+          "price": "199",
+          "priceCurrency": "RUB",
+          "url": "https://zanityvpn.com/#pricing",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "RUB"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "RU"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "RU",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "3 месяца",
+          "price": "579",
+          "priceCurrency": "RUB",
+          "url": "https://zanityvpn.com/#pricing",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "RUB"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "RU"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "RU",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "6 месяцев",
+          "price": "1099",
+          "priceCurrency": "RUB",
+          "url": "https://zanityvpn.com/#pricing",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "RUB"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "RU"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "RU",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "12 месяцев",
+          "price": "1999",
+          "priceCurrency": "RUB",
+          "url": "https://zanityvpn.com/#pricing",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "RUB"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "RU"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 0,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "RU",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
+        }
+      ],
+      "image": [
+        "https://zanityvpn.com/og.png",
+        "https://zanityvpn.com/icon-512.png"
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Как попробовать бесплатно?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Войдите в личный кабинет или откройте бота @zanity_vpn_bot и активируйте пробный период: сутки, 10 ГБ трафика, одно устройство. Карта не нужна."}},
-        {"@type": "Question", "name": "На каких устройствах работает?",
-         "acceptedAnswer": {"@type": "Answer", "text": "iPhone и iPad, Android, Windows, macOS и Linux. Подписка импортируется в приложение INCY или другой совместимый клиент одной ссылкой."}},
-        {"@type": "Question", "name": "Сколько устройств можно подключить?",
-         "acceptedAnswer": {"@type": "Answer", "text": "В подписку входят три устройства. Если нужно больше, их можно добавить в боте или в личном кабинете."}},
-        {"@type": "Question", "name": "Как оплатить?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Пополните баланс в рублях в боте или в личном кабинете и выберите срок: 14 дней, 1, 3, 6 или 12 месяцев. Продление происходит автоматически с баланса, его можно отключить."}},
-        {"@type": "Question", "name": "Что делать, если что-то не работает?",
-         "acceptedAnswer": {"@type": "Answer", "text": "Напишите в поддержку через раздел «Поддержка» в боте. Там же можно открыть обращение и отследить ответ."}}
+        {
+          "@type": "Question",
+          "name": "Как попробовать бесплатно?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Войдите в личный кабинет или откройте бота @zanity_vpn_bot и активируйте пробный период: сутки, 10 ГБ трафика, одно устройство. Карта не нужна."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "На каких устройствах работает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhone и iPad, Android, Windows, macOS и Linux. Подписка импортируется в приложение INCY или другой совместимый клиент одной ссылкой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько устройств можно подключить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В подписку входят три устройства. Если нужно больше, их можно добавить в боте или в личном кабинете."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как оплатить?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Пополните баланс в рублях в боте или в личном кабинете и выберите срок: 14 дней, 1, 3, 6 или 12 месяцев. Продление происходит автоматически с баланса, его можно отключить."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что делать, если что-то не работает?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Напишите в поддержку через раздел «Поддержка» в боте. Там же можно открыть обращение и отследить ответ."
+          }
+        }
       ]
     }
   ]
