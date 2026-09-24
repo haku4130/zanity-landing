@@ -7,6 +7,13 @@
 
 ## Деплой
 
+Автоматически: каждый пуш в `main` выкатывает сайт через GitHub Actions
+(`.github/workflows/deploy.yml`). Нужны секреты репозитория `CLOUDFLARE_API_TOKEN`
+(токен по шаблону «Edit Cloudflare Workers») и `CLOUDFLARE_ACCOUNT_ID`.
+Перезапустить без пуша: Actions → Deploy → Run workflow.
+
+Вручную, если нужно:
+
 ```bash
 npx wrangler deploy
 ```
