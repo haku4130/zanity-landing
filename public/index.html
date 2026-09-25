@@ -7,7 +7,9 @@
 <meta name="description" content="Zanity VPN — приватное и стабильное подключение. Раздельная маршрутизация: российские сайты открываются напрямую. Безлимитный трафик, 3 устройства, оплата в рублях, первые сутки бесплатно.">
 <link rel="canonical" href="https://zanityvpn.com/">
 <meta name="theme-color" content="#070D22">
-<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <meta property="og:type" content="website">
@@ -21,9 +23,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
 {
@@ -38,7 +39,7 @@
         "Занити ВПН"
       ],
       "url": "https://zanityvpn.com/",
-      "logo": "https://zanityvpn.com/icon-512.png",
+      "logo": "https://zanityvpn.com/logo.png",
       "sameAs": [
         "https://t.me/zanity_vpn_bot"
       ]
@@ -317,6 +318,10 @@
 </script>
 
 <style>
+@font-face{font-family:"Onest";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/onest-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:"Onest";font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/onest-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:500 700;font-display:swap;src:url(/fonts/unbounded-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:500 700;font-display:swap;src:url(/fonts/unbounded-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 body{margin:0;background:#070D22;color:#EAF0FF;font:400 17px/1.6 "Onest",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}
 *{box-sizing:border-box}
 :root{--top-h:80px}
@@ -440,7 +445,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #27
 .z-aurora span:nth-child(3){width:520px;height:420px;left:30%;top:30%;background:#3FE0C5;opacity:.12}
 .z-aurora span:nth-child(4){width:600px;height:460px;right:-120px;top:56%;background:#1D55D0;opacity:.3}
 .z-aurora span:nth-child(5){width:460px;height:380px;left:-100px;top:78%;background:#27C4E8;opacity:.16}
-.z-sky{position:absolute;left:0;right:0;top:-10%;height:120%}
+.z-sky{position:absolute;left:0;right:0;top:-300px;bottom:-300px}
 .z-sky-far{opacity:.45;background-image:radial-gradient(1px 1px at 12% 6%,#fff,transparent 60%),radial-gradient(1px 1px at 34% 14%,#bff5ff,transparent 60%),radial-gradient(1px 1px at 58% 4%,#fff,transparent 60%),radial-gradient(1px 1px at 76% 17%,#fff,transparent 60%),radial-gradient(1px 1px at 90% 9%,#bff5ff,transparent 60%),radial-gradient(1px 1px at 22% 19%,#fff,transparent 60%);background-size:100% 320px}
 .z-sky-near{opacity:.7;background-image:radial-gradient(1.7px 1.7px at 18% 10%,#fff,transparent 60%),radial-gradient(2px 2px at 46% 3%,#d9fbff,transparent 60%),radial-gradient(1.6px 1.6px at 68% 13%,#fff,transparent 60%),radial-gradient(1.8px 1.8px at 86% 6%,#bff5ff,transparent 60%);background-size:100% 520px}
 .z-shoot i{position:absolute;width:160px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9));opacity:0;transform:rotate(18deg)}
@@ -515,8 +520,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #27
 <header id="top" style="position: relative; background: radial-gradient(700px 520px at 78% 38%, rgba(39,196,232,.20), transparent 65%), radial-gradient(800px 600px at 5% 0%, rgba(29,85,208,.40), transparent 60%);">
   <div class="z-top">
     <div class="z-top-in">
-      <a href="#top" aria-label="Zanity VPN — на главную" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font: 700 19px/1 &quot;Unbounded&quot;, sans-serif;">
-        <img src="/apple-touch-icon.png" alt="" width="34" height="34" style="width: 34px; height: 34px; border-radius: 9px;">
+      <a href="#top" aria-label="ZanityVPN — на главную" style="display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font: 700 19px/1 &quot;Unbounded&quot;, sans-serif;">
+        <img src="/mark.webp" alt="" width="34" height="34" style="width: 34px; height: 34px;">
         <b style="font-weight: 700;">Zanity<span style="color: #27C4E8;">VPN</span></b>
       </a>
       <nav class="z-nav" aria-label="Разделы" style="display: flex; align-items: center; gap: 28px; font-size: 15px;">
@@ -633,7 +638,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #27
 
           <circle cx="210" cy="322" r="70" fill="url(#zglow)"></circle>
           <circle cx="210" cy="322" r="40" fill="#0D1840" stroke="#27C4E8" stroke-width="2"></circle>
-          <image href="/icon-512.png" x="184" y="296" width="52" height="52"></image>
+          <image href="/mark.webp" x="184" y="296" width="52" height="52"></image>
           <text class="z-t-hub" x="210" y="386" text-anchor="middle" style="font-family: &quot;Unbounded&quot;, sans-serif; font-size: 12px; font-weight: 700; fill: #5FD6F0;">Zanity VPN</text>
         </svg>
 
@@ -992,7 +997,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #27
 <footer class="z-foot" style="border-top: 1px solid rgba(255,255,255,.07); color: #8C9AC0; font-size: 14px; padding: 36px 0;">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; justify-content: space-between; align-items: center;">
     <div style="display: flex; align-items: center; gap: 10px;">
-      <img src="/favicon.png" alt="" width="24" height="24" style="width: 24px; height: 24px; border-radius: 6px;">
+      <img src="/mark.webp" alt="" width="24" height="24" style="width: 24px; height: 24px;">
       <span>© 2026 Zanity VPN</span>
     </div>
     <nav aria-label="Ссылки" style="display: flex; gap: 24px; flex-wrap: wrap;">
